@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #2b2b2b;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.left-panel {
+  width: 300px;
+  background: linear-gradient(145deg, #353535, #2d2d2d);
+  padding: 20px;
+  border-right: 1px solid #444;
+  overflow-y: auto;
+}
+
+.left-panel h1 {
+  text-align: center;
+  color: #4caf50;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.control-group {
+  margin-bottom: 25px;
+}
+
+.control-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+#difficulty {
+  width: 100%;
+  padding: 10px;
+  background: #404040;
+  color: white;
+  border: 2px solid #606060;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.left-panel h3 {
+  color: #4caf50;
+  margin: 20px 0 10px 0;
+}
+
+#words-list {
+  margin-bottom: 25px;
+}
+
+.word-item {
+  margin: 4px 0;
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  cursor: default;
+  transition: all 0.2s;
+}
+
+.word-unfound {
+  background: #ff6b6b;
+  color: white;
+}
+
+.word-found {
+  background: #4caf50;
+  color: white;
+  animation: celebrate 0.5s ease-in-out;
+}
+
+@keyframes celebrate {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.primary {
+  background: #4caf50;
+  color: white;
+}
+.primary:hover:not(:disabled) {
+  background: #45a049;
+}
+
+.secondary {
+  background: #2196f3;
+  color: white;
+}
+.secondary:hover:not(:disabled) {
+  background: #1976d2;
+}
+
+.neutral {
+  background: #9e9e9e;
+  color: white;
+}
+.neutral:hover:not(:disabled) {
+  background: #757575;
+}
+
+.warning {
+  background: #ff9800;
+  color: white;
+}
+.warning:hover:not(:disabled) {
+  background: #f57c00;
+}
+
+.magic {
+  background: #9c27b0;
+  color: white;
+}
+.magic:hover:not(:disabled) {
+  background: #7b1fa2;
+}
+
+.right-panel {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #353535, #2d2d2d);
+}
+
+#game-grid {
+  display: grid;
+  gap: 3px;
+  padding: 10px;
+  background: #444;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.cell:hover:not(.selected):not(.found):not(.hint) {
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.cell-default {
+  background: #4a4a4a;
+  color: #ffffff;
+}
+
+.cell-selected {
+  background: #ffd700 !important;
+  color: black !important;
+  border-color: #ffa500 !important;
+  transform: scale(1.1) !important;
+  z-index: 10;
+}
+
+.cell-found {
+  background: #4caf50 !important;
+  color: white !important;
+  animation: foundGlow 1s ease-in-out;
+}
+
+@keyframes foundGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px #4caf50;
+  }
+  50% {
+    box-shadow: 0 0 20px #4caf50;
+  }
+}
+
+.cell-hint {
+  background: #ff9800 !important;
+  color: white !important;
+  border-color: #f57c00 !important;
+  animation: pulse 0.6s infinite;
+  box-shadow: 0 0 15px rgba(255, 152, 0, 0.6);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .left-panel {
+    width: 100%;
+    max-height: 50vh;
+    padding: 15px;
+  }
+
+  .right-panel {
+    padding: 10px;
+    height: 50vh;
+  }
+
+  .cell {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  #game-grid {
+    gap: 2px;
+    padding: 8px;
+  }
+}

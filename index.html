@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Word Search Puzzle Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <h1>🔍 WORD SEARCH</h1>
+
+            <div class="control-group">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard" selected>Hard</option>
+                </select>
+            </div>
+
+            <h3>Words to Find:</h3>
+            <div id="words-list"></div>
+
+            <div class="buttons">
+                <button id="new-game" class="btn primary">🎮 New Game</button>
+                <button id="complete" class="btn secondary" disabled>✅ Complete Selection</button>
+                <button id="reset" class="btn neutral" disabled>🔄 Reset Selection</button>
+                <button id="hint" class="btn warning">💡 Hint (3)</button>
+                <button id="solve" class="btn magic">🤖 Solve Word</button>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <div id="game-grid"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
