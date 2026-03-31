@@ -1,0 +1,10 @@
+{
+  "name": "word-search-puzzle",
+  "version": "1.0.0",
+  "description": "Word Search Puzzle Game - Web Version",
+  "scripts": {
+    "start": "open index.html"
+  },
+  "author": "BLACKBOXAI",
+  "license": "MIT"
+}

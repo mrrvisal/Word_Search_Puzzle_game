@@ -1,6 +1,25 @@
-# Word_Search_Puzzle_game
+# Word Search Puzzle Game
 
-<!-- how to execute game -->
+## Web Version (Vercel Deploy Ready)
 
-<!-- mac os -->
-<!-- python3 -u "/Users/eivisal/Desktop/project_personal/Word_Search_Puzzle_game/Word_Search_puzzle.py" -->
+Pure HTML/CSS/JS implementation matching original PyQt app.
+
+**Play locally:**
+
+```bash
+open index.html
+```
+
+**Deploy to Vercel:**
+
+1. `npm i -g vercel`
+2. `vercel` (in this directory)
+3. Select defaults, framework: Other
+
+**Features:**
+
+- Responsive (mobile/desktop)
+- 3 difficulties (12x12, 14x14, 16x16 grids)
+- 5 words/game
+- Click selection, hints (3), AI solve
+- Permanent highlights, win detection
